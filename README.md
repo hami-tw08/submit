@@ -7,7 +7,7 @@
 - ついでに猫からのメッセージも表示する
 
 ## ③アプリのデプロイURL
-
+https://hami-tw08.github.io/submit/
 
 ## ④アプリのログイン用IDまたはPassword（ある場合）
 - ID: なし
