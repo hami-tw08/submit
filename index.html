@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>猫ちゃん</title>
+</head>
+
+<body>
+    <div class="tytle">
+        <h1>今日の猫ちゃん</h1>
+    </div>
+
+    <div class="box">
+        <button id="cat">→ → →🐈← ← ←</button>
+    </div>
+    <div class="box">
+        <div id="cat-images"></div>
+    </div>
+
+    <div class="box">
+        <p id="echo"></p>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+
+        $("#cat").on("click", function () {
+            const url = "https://api.thecatapi.com/v1/images/search?limit=1"
+            $.ajax({
+                headers: {
+                    "x-api-key": "***"
+                },
+                url: url,
+                dataType: "json"
+            }).done(function (data) {
+                console.log(data);
+                let html = "";//初期化
+                const len = data.length;
+                for (let i = 0; i < len; i++) {
+                    html += `<img src="${data[i].url}"><br>`;
+                }
+                $("#cat-images").html(html);
+            });
+        });
+
+        $("#cat").on("click", function () {
+            const r = Math.ceil(Math.random() * 5);
+            if (r == 1) {
+                $("#echo").html('明日もがんばるにゃん');
+                $("#echo").css("color", "#ff0000"); 
+                $("#echo").fadeOut(2000).fadeIn(1000); //2秒
+            }
+            if (r == 2) {
+                $("#echo").html("今日もよくがんばったにゃん");
+                $("#echo").css("color", "#00ff00");
+                $("#echo").fadeOut(2000).fadeIn(1000); //2秒
+            }
+            if (r == 3) {
+                $("#echo").html("ゆっくり休んでにゃん");
+                $("#echo").css("color", "#0000ff"); 
+                $("#echo").fadeOut(2000).fadeIn(1000); //2秒
+            }
+            if (r == 4) {
+                $("#echo").html("いつも一生懸命でえらいにゃん");
+                $("#echo").css("color", "#000000"); 
+                $("#echo").fadeOut(2000).fadeIn(1000); //2秒
+            }
+            if (r == 5) {
+                $("#echo").html("大吉にゃん");
+                $("#echo").css("color", "#000000"); 
+                $("#echo").fadeOut(2000).fadeIn(1000); //2秒
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>

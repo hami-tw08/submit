@@ -1,0 +1,32 @@
+body{
+    background-color: beige;
+}
+
+h1{
+    margin: 0 auto;
+    color: brown;
+}
+
+.tytle{
+    text-align: center;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+#cat{
+    font-size: large;
+
+}
+
+#cat-images img{
+    height: 500px;
+    width: auto;
+    display: block;
+}
+
+#echo{
+    font-size: 20px;
+}
