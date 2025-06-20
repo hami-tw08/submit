@@ -23,6 +23,7 @@
     <div class="box">
         <p id="echo"></p>
     </div>
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
 
@@ -36,7 +37,7 @@
                 dataType: "json"
             }).done(function (data) {
                 console.log(data);
-                let html = "";//初期化
+                let html = "";
                 const len = data.length;
                 for (let i = 0; i < len; i++) {
                     html += `<img src="${data[i].url}"><br>`;
